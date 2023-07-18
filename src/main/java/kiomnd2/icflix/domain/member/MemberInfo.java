@@ -1,4 +1,4 @@
-package kiomnd2.icflix.interfaces.member;
+package kiomnd2.icflix.domain.member;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package kiomnd2.icflix.interfaces.member;
+package kiomnd2.icflix.domain.member;
 
 
 import jakarta.persistence.*;
@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.Token;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

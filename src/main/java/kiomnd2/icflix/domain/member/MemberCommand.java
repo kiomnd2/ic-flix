@@ -1,6 +1,5 @@
 package kiomnd2.icflix.domain.member;
 
-import kiomnd2.icflix.interfaces.member.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -18,7 +17,7 @@ public class MemberCommand {
         public Member toEntity() {
             return Member.builder()
                     .userId(userId)
-                    .password(password)
+                    .pass(password)
                     .email(email)
                     .build();
         }
