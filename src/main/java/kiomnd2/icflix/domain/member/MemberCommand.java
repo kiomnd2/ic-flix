@@ -11,15 +11,19 @@ public class MemberCommand {
     @Getter
     public static class RegisterMember {
         private final String userId;
+        private final String name;
         private final String password;
         private final String email;
 
-        public Member toEntity() {
-            return Member.builder()
-                    .userId(userId)
-                    .pass(password)
-                    .email(email)
-                    .build();
-        }
+
+    }
+
+    @Builder
+    @ToString
+    @Getter
+    public static class UpdateMember {
+        private final String name;
+        private final String password;
+        private final String email;
     }
 }

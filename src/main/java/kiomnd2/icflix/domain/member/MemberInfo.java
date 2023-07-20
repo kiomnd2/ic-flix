@@ -8,5 +8,6 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class MemberInfo {
     private final String userId;
+    private final String name;
     private final String email;
 }
