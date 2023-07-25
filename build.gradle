@@ -35,11 +35,11 @@ dependencies {
             'org.projectlombok:lombok-mapstruct-binding:0.2.0'
     )
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-
     testAnnotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     //security
     implementation 'org.springframework.boot:spring-boot-starter-security'

@@ -20,6 +20,14 @@ public class MemberDto {
     @Setter
     @Getter
     @ToString
+    public static class LoginRequest {
+        private String userId;
+        private String password;
+    }
+
+    @Setter
+    @Getter
+    @ToString
     public static class RegisterResponse {
         private String userToken;
 
@@ -27,4 +35,5 @@ public class MemberDto {
             this.userToken = userToken;
         }
     }
+
 }

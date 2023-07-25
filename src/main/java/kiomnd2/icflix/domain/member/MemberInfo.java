@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public class MemberInfo {
+    private final String token;
     private final String userId;
     private final String name;
     private final String email;
+    private final Member.MemberType memberType;
 }
