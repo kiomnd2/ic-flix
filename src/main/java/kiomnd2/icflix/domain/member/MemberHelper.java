@@ -6,10 +6,15 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class MemberCreateHelper {
+public class MemberHelper {
     private final PasswordEncoder encoder;
 
     public Member createMember(MemberCommand.RegisterMember member) {
         return Member.from(member, encoder);
+    }
+
+
+    public boolean checkMember(Member v, String inPassword) {
+        return encoder.matches(v.getPass(), inPassword);
     }
 }

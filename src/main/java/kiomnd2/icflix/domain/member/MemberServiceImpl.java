@@ -7,9 +7,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberServiceImpl implements MemberService {
     private final MemberStore memberStore;
-    private final MemberCreateHelper memberCreateHelper;
+    private final MemberReader memberReader;
+    private final MemberHelper memberCreateHelper;
     @Override
     public MemberInfo joinMember(MemberCommand.RegisterMember member) {
-        return memberStore.store(memberCreateHelper.createMember(member));
+        return memberStore.store(memberCreateHelper.createMember(member)).toInfo();
+    }
+
+    @Override
+    public MemberInfo loginMember(MemberQuery.InquireMember query) {
+        Member member = memberReader.readMember(query.getUserId(), query.getPassword());
+        return member.toInfo();
     }
 }

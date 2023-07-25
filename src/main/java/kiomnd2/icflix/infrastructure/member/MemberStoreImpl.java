@@ -6,6 +6,7 @@ import kiomnd2.icflix.domain.member.MemberStore;
 import kiomnd2.icflix.domain.member.Member;
 import kiomnd2.icflix.domain.member.MemberInfo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -16,10 +17,14 @@ public class MemberStoreImpl implements MemberStore {
     private final MemberRepository memberRepository;
 
     @Override
-    public MemberInfo store(Member member) {
-        memberRepository.findByUserId(member.getUserId()).ifPresent(v -> {
+    public Member store(Member member) {
+        Member m = memberRepository.save(member);
+        try {
+            memberRepository.flush();
+        } catch (DataIntegrityViolationException e) {
+            // 이미 등록된 사용자
             throw new BaseException(ErrorCode.COMMON_ALREADY_EXIST_USER);
-        });
-        return memberRepository.save(member).toInfo();
+        }
+        return m;
     }
 }
