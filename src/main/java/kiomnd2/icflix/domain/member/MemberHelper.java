@@ -15,6 +15,6 @@ public class MemberHelper {
 
 
     public boolean checkMember(Member v, String inPassword) {
-        return encoder.matches(v.getPass(), inPassword);
+        return encoder.matches(inPassword, v.getPass());
     }
 }

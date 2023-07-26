@@ -3,6 +3,8 @@ package kiomnd2.icflix.domain.member;
 
 import io.micrometer.common.util.StringUtils;
 import jakarta.persistence.*;
+import kiomnd2.icflix.common.response.ErrorCode;
+import kiomnd2.icflix.common.response.exception.BaseException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Getter
@@ -42,7 +46,17 @@ public class Member {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+
     public static Member from(MemberCommand.RegisterMember member, PasswordEncoder encoder) {
+        if (StringUtils.isEmpty(member.getUserId())) throw new BaseException(ErrorCode.COMMON_SYSTEM_ERROR, "USER_ID");
+        if (StringUtils.isEmpty(member.getPassword())) throw new BaseException(ErrorCode.COMMON_SYSTEM_ERROR, "PASSWORD");
+        if (StringUtils.isEmpty(member.getName())) throw new BaseException(ErrorCode.COMMON_SYSTEM_ERROR, "NAME");
+        if (StringUtils.isEmpty(member.getEmail())) throw new BaseException(ErrorCode.COMMON_SYSTEM_ERROR, "EMAIL");
+
+        if (isValidEmail(member.getEmail())) {
+            throw new BaseException(ErrorCode.COMMON_NOT_VALID_EMAIL);
+        }
+
         return Member.builder()
                 .userId(member.getUserId())
                 .name(member.getName())
@@ -60,5 +74,14 @@ public class Member {
 
     public enum MemberType {
         MEMBER, ADMIN
+    }
+
+    private static boolean isValidEmail(String email) {
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\." +
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$");
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }
