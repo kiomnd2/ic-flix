@@ -16,11 +16,11 @@ public class CommonResponse<T> {
         return new CommonResponse<>("0000", body, null);
     }
 
-    public static <T> CommonResponse<String> fail(ErrorCode errorCode) {
+    public static CommonResponse<String> fail(ErrorCode errorCode) {
         return new CommonResponse<>(errorCode.name(), null, errorCode.getMessage());
     }
 
-    public static <T> CommonResponse<String> fail(ErrorCode errorCode, Object ... args) {
+    public static CommonResponse<String> fail(ErrorCode errorCode, Object ... args) {
         return new CommonResponse<>(errorCode.name(), null, errorCode.getMessage(args));
     }
 }
