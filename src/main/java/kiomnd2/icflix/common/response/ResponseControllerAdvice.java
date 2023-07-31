@@ -16,17 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class ResponseControllerAdvice {
 
     /**
-     * http status 500 and result fail
-     * 시스템 예외
-     */
-    @ResponseBody
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(value = Exception.class)
-    public CommonResponse<String> onException(Exception e) {
-        return CommonResponse.fail(ErrorCode.COMMON_SYSTEM_ERROR);
-    }
-
-    /**
      * http status 200 and result fail
      * 비지니스 로직 처리 이슈
      */
@@ -52,5 +41,16 @@ public class ResponseControllerAdvice {
         } else {
             return CommonResponse.fail(ErrorCode.COMMON_REQUIRED_VALUE, "UNKNOWN");
         }
+    }
+
+    /**
+     * http status 500 and result fail
+     * 시스템 예외
+     */
+    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(value = Exception.class)
+    public CommonResponse<String> onException(Exception e) {
+        return CommonResponse.fail(ErrorCode.COMMON_SYSTEM_ERROR);
     }
 }

@@ -25,6 +25,7 @@ public class TokenProviderImpl implements TokenProvider {
                         SignatureAlgorithm.HS512.getJcaName()))
                 .setIssuer(tokenProperty.getIssuer())
                 .setIssuedAt(Timestamp.valueOf(LocalDateTime.now()))
+                .setSubject(userSpecification)
                 .setExpiration(Date.from(Instant.now().plus(tokenProperty.getExpirationHours(), ChronoUnit.HOURS)))    // JWT 토큰 만료 시간
                 .compact();
     }
