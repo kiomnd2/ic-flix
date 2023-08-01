@@ -72,6 +72,7 @@ public class Member {
         this.email = member.getEmail();
     }
 
+    @Getter
     public enum MemberType {
         MEMBER, ADMIN
     }
