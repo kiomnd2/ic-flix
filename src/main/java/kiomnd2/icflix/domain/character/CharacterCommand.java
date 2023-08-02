@@ -14,6 +14,14 @@ public class CharacterCommand {
         private final String birthDate;
         private final String gender;
         private final Long height;
-        private final String agencyToken;
+
+        public Character toEntity() {
+            return Character.builder()
+                    .name(name)
+                    .birthDate(birthDate)
+                    .gender(gender)
+                    .height(height)
+                    .build();
+        }
     }
 }

@@ -20,6 +20,7 @@ public class CharacterApi {
     @PostMapping
     public CommonResponse<CharacterDto.ResponseToken> registerCharacter(
             @RequestBody @Valid CharacterDto.CreateCharacter requestDto) {
-        return CommonResponse.success(CharacterDto.ResponseToken.builder().token("token").build());
+        String token = characterFacade.createCharacter(CharacterMapper.INSTANCE.of(requestDto));
+        return CommonResponse.success(CharacterDto.ResponseToken.builder().token(token).build());
     }
 }

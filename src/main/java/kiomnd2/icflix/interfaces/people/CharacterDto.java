@@ -15,7 +15,6 @@ public class CharacterDto {
         private String birthDate; // 생년월일
         private String gender; // 성별
         private Long height; // 키
-        private String agencyToken; // 소속사정보 토큰
     }
 
     @ToString
