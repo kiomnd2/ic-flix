@@ -1,4 +1,4 @@
-package kiomnd2.icflix.interfaces.people;
+package kiomnd2.icflix.interfaces.character;
 
 import lombok.Builder;
 import lombok.Getter;

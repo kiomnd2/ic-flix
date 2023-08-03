@@ -1,4 +1,4 @@
-package kiomnd2.icflix.interfaces.people;
+package kiomnd2.icflix.interfaces.character;
 
 import kiomnd2.icflix.domain.character.CharacterCommand;
 import org.mapstruct.Mapper;

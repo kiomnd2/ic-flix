@@ -1,4 +1,4 @@
-package kiomnd2.icflix.interfaces.people;
+package kiomnd2.icflix.interfaces.character;
 
 import jakarta.validation.Valid;
 import kiomnd2.icflix.application.character.CharacterFacade;
