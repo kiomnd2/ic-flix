@@ -1,5 +1,6 @@
 package kiomnd2.icflix.interfaces.category;
 
+import kiomnd2.icflix.application.category.CategoryFacade;
 import kiomnd2.icflix.common.response.CommonResponse;
 import kiomnd2.icflix.domain.member.Member;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +16,11 @@ import java.util.Enumeration;
 @RestController
 @RequestMapping("/api/v1/category")
 public class CategoryApi {
+    private final CategoryFacade categoryFacade;
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping
-    public CommonResponse<CategoryDto.ResponseToken> createCategory() {
+    public CommonResponse<CategoryDto.ResponseToken> createCategory(CategoryDto.RequestCreateSeason createDto) {
         return CommonResponse.success(CategoryDto.ResponseToken.builder().token("token").build());
     }
 }
