@@ -34,7 +34,7 @@ public class CategoryDto {
     @Getter
     public static class RequestCreateContent {
         private Long numberOfContents;
-        private String contentName;
+        private String contentsName;
         private String contentsDesc;
         private BigDecimal contentsAmount;
     }
