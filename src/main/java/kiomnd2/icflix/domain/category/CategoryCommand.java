@@ -12,7 +12,7 @@ public class CategoryCommand {
     @ToString
     @Getter
     @Builder
-    public static class RequestRegister {
+    public static class RequestCreateCategory {
         private final String categoryId;
         private final String categoryName;
         private final List<RequestCreateSeason> seasonList;
