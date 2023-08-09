@@ -18,6 +18,7 @@ public class CategoryApi {
     @PostMapping
     public CommonResponse<CategoryDto.ResponseToken> createCategory(CategoryDto.RequestCreateCategory createDto) {
         String token = categoryFacade.createCategory(CategoryMapper.INSTANCE.of(createDto));
+
         return CommonResponse.success(CategoryDto.ResponseToken.builder().token(token).build());
     }
 }
