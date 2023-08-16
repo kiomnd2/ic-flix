@@ -1,9 +1,7 @@
 package kiomnd2.icflix.domain.category.season.content;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import kiomnd2.icflix.domain.category.season.Season;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,11 +22,16 @@ public class Contents {
     private String contentsDesc;
     private BigDecimal contentsAmount;
 
+    @JoinColumn(name = "season_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Season season;
+
     @Builder
-    public Contents(Long numberOfContents, String contentsName, String contentsDesc, BigDecimal contentsAmount) {
+    public Contents(Long numberOfContents, String contentsName, String contentsDesc, BigDecimal contentsAmount, Season season) {
         this.numberOfContents = numberOfContents;
         this.contentsName = contentsName;
         this.contentsDesc = contentsDesc;
         this.contentsAmount = contentsAmount;
+        this.season = season;
     }
 }
