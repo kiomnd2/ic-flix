@@ -4,7 +4,6 @@ import kiomnd2.icflix.common.response.ErrorCode;
 import kiomnd2.icflix.common.response.exception.BaseException;
 import kiomnd2.icflix.domain.character.Character;
 import kiomnd2.icflix.domain.character.CharacterReader;
-import kiomnd2.icflix.interfaces.character.CharacterMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

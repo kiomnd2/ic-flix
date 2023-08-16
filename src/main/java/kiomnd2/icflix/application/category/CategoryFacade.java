@@ -1,7 +1,7 @@
 package kiomnd2.icflix.application.category;
 
 import kiomnd2.icflix.domain.category.CategoryCommand;
-import kiomnd2.icflix.domain.character.CategoryService;
+import kiomnd2.icflix.domain.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

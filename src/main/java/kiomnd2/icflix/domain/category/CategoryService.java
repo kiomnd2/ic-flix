@@ -1,6 +1,4 @@
-package kiomnd2.icflix.domain.character;
-
-import kiomnd2.icflix.domain.category.CategoryCommand;
+package kiomnd2.icflix.domain.category;
 
 public interface CategoryService {
 

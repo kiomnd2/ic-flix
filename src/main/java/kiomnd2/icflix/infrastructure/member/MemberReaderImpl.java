@@ -6,7 +6,6 @@ import kiomnd2.icflix.domain.member.Member;
 import kiomnd2.icflix.domain.member.MemberHelper;
 import kiomnd2.icflix.domain.member.MemberReader;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor

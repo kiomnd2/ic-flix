@@ -1,8 +1,6 @@
 package kiomnd2.icflix.common.response;
 
-import com.sun.jdi.event.ExceptionEvent;
 import kiomnd2.icflix.common.response.exception.BaseException;
-import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

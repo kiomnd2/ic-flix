@@ -11,7 +11,8 @@ public enum ErrorCode {
     COMMON_NOT_FOUND_USER("이미 등록된 사용자 아이디 입니다."),
     COMMON_NOT_FOUND_CHARACTER("배우 정보를 찾을 수 없습니다."),
     COMMON_NOT_VALID_EMAIL("이미 등록된 사용자 아이디 입니다."),
-    COMMON_REQUIRED_VALUE("%s 는 필수 값입니다");
+    COMMON_REQUIRED_VALUE("%s 는 필수 값입니다"),
+    COMMON_NOT_FOUND_CATEGORY("해당 컨텐츠를 찾을 수 없습니다");
 
     private final String message;
 

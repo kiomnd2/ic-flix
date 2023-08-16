@@ -4,7 +4,6 @@ package kiomnd2.icflix.domain.member.token;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.bind.ConstructorBinding;
 
 @Getter
 @Setter

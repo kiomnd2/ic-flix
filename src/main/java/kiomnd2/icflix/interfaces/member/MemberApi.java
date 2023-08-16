@@ -2,7 +2,6 @@ package kiomnd2.icflix.interfaces.member;
 
 import kiomnd2.icflix.application.member.MemberFacade;
 import kiomnd2.icflix.common.response.CommonResponse;
-import kiomnd2.icflix.domain.member.MemberCommand;
 import kiomnd2.icflix.domain.member.MemberInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

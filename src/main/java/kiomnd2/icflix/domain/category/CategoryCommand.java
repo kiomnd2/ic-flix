@@ -2,12 +2,11 @@ package kiomnd2.icflix.domain.category;
 
 import kiomnd2.icflix.domain.category.season.Season;
 import kiomnd2.icflix.domain.category.season.content.Contents;
+import kiomnd2.icflix.domain.character.Character;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.security.core.parameters.P;
 
-import javax.swing.text.AbstractDocument;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -25,7 +24,6 @@ public class CategoryCommand {
             return Category.builder()
                     .categoryId(categoryId)
                     .categoryName(categoryName)
-                    .seasonList(seasonList.stream().map(RequestCreateSeason::toEntity).toList())
                     .build();
         }
     }
@@ -39,12 +37,12 @@ public class CategoryCommand {
         private List<String> characterTokenList;
         private List<RequestCreateContent> contentList;
 
-        public Season toEntity() {
+        public Season toEntity(Category category, List<Character> characters) {
             return Season.builder()
                     .numberOfSeason(numberOfSeason)
                     .author(author)
-                    .contentsList(contentList.stream().map(RequestCreateContent::toEntity).toList())
-                    .characterTokenList(characterTokenList)
+                    .category(category)
+                    .characters(characters)
                     .build();
         }
     }
@@ -58,12 +56,13 @@ public class CategoryCommand {
         private String contentsDes;
         private BigDecimal contentsAmount;
 
-        public Contents toEntity() {
+        public Contents toEntity(Season season) {
             return Contents.builder()
                     .numberOfContents(numberOfContents)
                     .contentsName(contentsName)
                     .contentsDesc(contentsDes)
                     .contentsAmount(contentsAmount)
+                    .season(season)
                     .build();
         }
     }
