@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,16 +22,16 @@ public class Season {
     private Long numberOfSeason;
     private String author;
 
-    @JoinColumn(name = "character_id")
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Character> characterTokenList;
+    @ElementCollection(targetClass = String.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "characters", joinColumns = @JoinColumn(name = "season_id"))
+    private List<String> characterTokenList;
 
     @JoinColumn(name = "contents_id")
     @OneToMany(fetch = FetchType.LAZY)
     private List<Contents> contentsList;
 
     @Builder
-    public Season(Long numberOfSeason, String author, List<Character> characterTokenList, List<Contents> contentsList) {
+    public Season(Long numberOfSeason, String author, List<String> characterTokenList, List<Contents> contentsList) {
         this.numberOfSeason = numberOfSeason;
         this.author = author;
         this.characterTokenList = characterTokenList;

@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Getter
-@Builder
 @NoArgsConstructor
 @Entity
 @AllArgsConstructor
@@ -28,4 +27,11 @@ public class Category {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Season> seasonList;
 
+    @Builder
+    public Category(String categoryId, String categoryName, List<Season> seasonList) {
+        this.token = TokenGenerator.randomCharacterWithPrefix(prefix);
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+        this.seasonList = seasonList;
+    }
 }

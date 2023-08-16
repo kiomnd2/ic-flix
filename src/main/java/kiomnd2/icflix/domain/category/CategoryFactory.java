@@ -1,4 +1,4 @@
-package kiomnd2.icflix.infrastructure.category;
+package kiomnd2.icflix.domain.category;
 
 import kiomnd2.icflix.domain.category.CategoryCommand;
 
